@@ -3,6 +3,7 @@ import { WeatherProvider } from "@/components/WeatherProvider";
 import { TopAppBar } from "@/components/TopAppBar";
 import { PageHeader } from "@/components/PageHeader";
 import { CurrentWeatherCard } from "@/components/CurrentWeatherCard";
+import { Map } from "@/components/Map";
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
           <PageHeader />
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2"></div>
           <CurrentWeatherCard /> 
+          <Map/>
         </div>
       </main>
       </WeatherProvider>

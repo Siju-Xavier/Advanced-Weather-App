@@ -60,12 +60,48 @@ export const CurrentWeatherCard = () => {
                 </div>
                 </div>           
             </CardContent>
-
             <CardFooter className="flex-wrap gap-x-8 gap-y-2 @lg:justify-between">
                 <div>
-                    <p>Wind
+                    <p className="text-sm text-muted-foreground">Wind
                     </p>
+                    <div className="flex items-center gap-1">
+                        <p>
+                            {currentWeather.windSpeed} {APP.UNIT.WIND[weatherUnit]}
+                        </p>
+                        <Navigation2Icon size={14}
+                        fill='currentColor'
+                        style={{rotate:`${currentWeather.windDeg}deg`,}}/>
+                    </div>
                 </div>
+                <div>
+                    <p className="text-sm text-muted-foreground">Humidity</p>
+
+                    <div className="flex items-center gap-1">
+                        <p> {currentWeather.humidity}%</p>
+                    </div>
+                </div>
+                <div>
+                    <p className="text-sm text-muted-foreground">visibility</p>
+
+                    <div className="flex items-center gap-1">
+                        <p>
+                            {currentWeather.visibility} km
+                        </p>
+
+                    </div>
+                </div>
+                <div>
+                    <p className="text-sm text-muted-foreground">Pressure</p>
+                    <div className="flex items-center gap-1">
+                        <p>{currentWeather.pressure} hPa</p>
+                    </div>
+                </div>                                
+                <div>
+                    <p className="text-sm text-muted-foreground">Dew Point</p>
+                    <div className="flex items-center gap-1">
+                        <p>{currentWeather.dewPoint}°</p>
+                     </div>
+                </div>                
             </CardFooter>
         </Card>
     )
