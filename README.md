@@ -1,7 +1,7 @@
 # Advanced Weather App
 
 
-A modern, responsive weather forecast application built with React, TypeScript, and Vite. It provides detailed current and hourly weather information, an interactive map, and customizable user preferences.
+A modern, responsive weather forecast application built with React, TypeScript, and Vite. It provides detailed current and hourly weather information, an interactive map, and customizable user preferences.This App is not built from scratch by me , I have referred this from a youtube tutorial(@codewithsadee) and made it simpler in my own way to hone my React skills.
 
 ## Features
 
