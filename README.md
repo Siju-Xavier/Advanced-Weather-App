@@ -1,5 +1,5 @@
 # Advanced Weather App
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/Siju-Xavier/Advanced-Weather-App.git)
+
 
 A modern, responsive weather forecast application built with React, TypeScript, and Vite. It provides detailed current and hourly weather information, an interactive map, and customizable user preferences.
 
