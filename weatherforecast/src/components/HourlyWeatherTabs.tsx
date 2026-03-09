@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "@/components/ui/tabs";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { OverviewChart } from "@/components/OverviewChart";
-
+import { PrecipitationChart } from "@/components/PrecipitationChart";
 /**
  * Types
  */
@@ -84,6 +84,19 @@ export const HourlyWeatherTabs = () => {
 
                     <CardContent>
                         <OverviewChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>
+
+            {/*Precipitation Tab*/}
+            <TabsContent value="precipitation">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Precipitation</CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                        <PrecipitationChart />
                     </CardContent>
                 </Card>
             </TabsContent>
