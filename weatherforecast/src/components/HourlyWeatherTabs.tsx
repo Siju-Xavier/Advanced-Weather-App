@@ -10,6 +10,7 @@ import { HumidityChart } from "@/components/HumidityChart";
 import { CloudCoverChart } from "@/components/CloudCoverChart";
 import { PressureChart } from "@/components/PressureChart";
 import { UVChart } from "@/components/UVChart";
+import { VisibilityChart } from "@/components/VisibilityChart";
 /**
  * Types
  */
@@ -169,7 +170,20 @@ export const HourlyWeatherTabs = () => {
                         <UVChart />
                     </CardContent>
                 </Card>
-            </TabsContent>    
+            </TabsContent>   
+
+            {/*Visibility Chart Tab*/}
+            <TabsContent value="visibility">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Visibility Chart</CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                        <VisibilityChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>                
         </Tabs>
     )
 }
