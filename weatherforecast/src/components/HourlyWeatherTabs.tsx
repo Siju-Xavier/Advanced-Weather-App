@@ -1,6 +1,7 @@
 
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "@/components/ui/tabs";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { OverviewChart } from "@/components/OverviewChart";
@@ -77,14 +78,22 @@ export const HourlyWeatherTabs = () => {
             <div className="flex items-center gap-4">
                 <h2 className="text-lg font-semibold">Hourly</h2>
 
-                <TabsList className="bg-background gap-2 overflow-x-auto overflow-y-hidden justify-start" style={{ scrollbarWidth : "none"}}>
-                    {TABS_LIST.map((item => (<TabsTrigger key={item.value} value={item.value} className="border-none bg-secondary h-9 px-4 rounded-full data-[state=active]:bg-primary! data-[state=active]:text-background">{item.title}</TabsTrigger>)))}
+                <TabsList className="bg-background/20 backdrop-blur-md gap-2 overflow-x-auto overflow-y-hidden justify-start" style={{ scrollbarWidth : "none"}}>
+                    {TABS_LIST.map((item => (<TabsTrigger key={item.value} value={item.value} className="border-none bg-background/40 h-9 px-4 rounded-full data-[state=active]:bg-primary! data-[state=active]:text-background transition-all">{item.title}</TabsTrigger>)))}
                 </TabsList>
             </div>
 
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={tab}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                >
             {/*Overview Tab*/}
             <TabsContent value="overview">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Overview</CardTitle>
                     </CardHeader>
@@ -97,7 +106,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*Precipitation Tab*/}
             <TabsContent value="precipitation">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Precipitation</CardTitle>
                     </CardHeader>
@@ -110,7 +119,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*Wind Tab*/}
             <TabsContent value="wind">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Wind</CardTitle>
                     </CardHeader>
@@ -123,7 +132,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*Humidity Tab*/}
             <TabsContent value="humidity">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Humidity</CardTitle>
                     </CardHeader>
@@ -136,7 +145,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*Cloud Cover Tab*/}
             <TabsContent value="cloudCover">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Cloud Cover</CardTitle>
                     </CardHeader>
@@ -149,7 +158,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*Pressure Chart Tab*/}
             <TabsContent value="pressure">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Pressure Chart</CardTitle>
                     </CardHeader>
@@ -162,7 +171,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*UV Chart Tab*/}
             <TabsContent value="uv">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>UV Chart</CardTitle>
                     </CardHeader>
@@ -175,7 +184,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*Visibility Chart Tab*/}
             <TabsContent value="visibility">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Visibility Chart</CardTitle>
                     </CardHeader>
@@ -188,7 +197,7 @@ export const HourlyWeatherTabs = () => {
 
             {/*Feels like Chart Tab*/}
             <TabsContent value="feelsLike">
-                <Card>
+                <Card className="bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl">
                     <CardHeader>
                         <CardTitle>Feels like Chart</CardTitle>
                     </CardHeader>
@@ -198,6 +207,8 @@ export const HourlyWeatherTabs = () => {
                     </CardContent>
                 </Card>
             </TabsContent>                            
+                </motion.div>
+            </AnimatePresence>
         </Tabs>
     )
 }

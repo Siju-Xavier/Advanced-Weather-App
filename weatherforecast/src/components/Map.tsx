@@ -4,7 +4,7 @@ import { MAPBOX } from "@/config"
 import { useEffect, useMemo, useRef, useState,  } from "react"
 import { useTheme } from "@/components/ThemeProvider"
 import { useWeather } from "@/hooks/useWeather"
-import { LngLatLike, Map as MapType } from "mapbox-gl"
+import type { LngLatLike, Map as MapType } from "mapbox-gl"
 import { Marker } from "@/components/Marker"
 
 
@@ -38,7 +38,7 @@ export const Map = () => {
 
     return (
     <div ref={mapContainerRef}
-    className="h-[300px] bg-card text-card-foreground rounded-xl border overflow-hidden shadow-sm">
+    className="h-[300px] bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 text-card-foreground rounded-xl border overflow-hidden shadow-xl transition-all duration-300">
         {map && (
             <Marker map={map} coordinates={center}/>
         )}

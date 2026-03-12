@@ -2,15 +2,20 @@
 import {APP, WEATHER_API} from "@/config";
 
 import { useWeather } from "@/hooks/useWeather";
+import { useFavorites } from "@/components/useFavorites";
+import { useAuth } from "@/components/AuthProvider";
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter} from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 
-import { Navigation2Icon } from "lucide-react";
+import { Navigation2Icon, StarIcon } from "lucide-react";
 import type { WeatherUnitType } from "@/components/WeatherProvider";
 
 export const CurrentWeatherCard = () => {
     const { weather } = useWeather();
+    const { user } = useAuth();
+    const { addFavorite, removeFavorite, isFavorite, loading, favorites } = useFavorites();
 
     if (!weather) return <Skeleton className="min-h-[300px] rounded-xl"/>
     
@@ -32,14 +37,48 @@ export const CurrentWeatherCard = () => {
 
     const weatherUnit = (localStorage.getItem(APP.STORE_KEY.UNIT) as WeatherUnitType) || WEATHER_API.DEFAULTS.UNIT;
 
-    
-    
+    // Check if current location is favorite
+    const currentIsFavorite = isFavorite(
+        weather.location.lat,
+        weather.location.lon
+    );
+    const favoriteRecord = favorites.find(
+        (f) => f.lat === weather.location.lat && f.lon === weather.location.lon
+    );
+
+    const toggleFavorite = async () => {
+        if (!user) return alert("Please sign in to save favorites.");
+        if (currentIsFavorite && favoriteRecord) {
+            await removeFavorite(favoriteRecord.id);
+        } else {
+            await addFavorite({
+                name: weather.location.name,
+                lat: weather.location.lat,
+                lon: weather.location.lon,
+                country: weather.location.country,
+                state: weather.location.state,
+            });
+        }
+    };
     
     return (
-        <Card className="@container min-h-[300px]">
-            <CardHeader>
-                <CardTitle>Current Weather</CardTitle>
-                <CardDescription>{currentWeather.dt}</CardDescription>
+        <Card className="@container min-h-[300px] relative bg-background/60 dark:bg-card/40 backdrop-blur-xl border-white/20 shadow-xl transition-all duration-300">
+            <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
+                <div>
+                    <CardTitle>Current Weather</CardTitle>
+                    <CardDescription>{currentWeather.dt}</CardDescription>
+                </div>
+                {user && (
+                    <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        onClick={toggleFavorite} 
+                        disabled={loading}
+                        title={currentIsFavorite ? "Remove from favorites" : "Save to favorites"}
+                    >
+                        <StarIcon className={`w-6 h-6 ${currentIsFavorite ? "fill-yellow-400 text-yellow-400" : "text-muted-foreground"}`} />
+                    </Button>
+                )}
             </CardHeader>
             <CardContent className="grow">
                 <div className="flex flex-wrap items-center gap-x-6">

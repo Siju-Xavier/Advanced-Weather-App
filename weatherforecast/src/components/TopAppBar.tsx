@@ -2,6 +2,8 @@ import { SearchDialog } from "@/components/SearchDialog";
 import { Logo } from "@/assets/logo";
 import { ThemeDropDown } from "@/components/ThemeDropDown";
 import { UnitDropdown } from "@/components/UnitDropdown";
+import { AuthDialog } from "@/components/AuthDialog";
+import { FavoritesDrawer } from "@/components/FavoritesDrawer";
 
 export const TopAppBar = () => {
   return (
@@ -13,6 +15,8 @@ export const TopAppBar = () => {
         <div className="flex gap-2">
           <ThemeDropDown />
           <UnitDropdown />
+          <FavoritesDrawer />
+          <AuthDialog />
         </div>
       </header>
     </div>

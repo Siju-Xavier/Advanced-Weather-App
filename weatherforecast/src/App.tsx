@@ -1,28 +1,34 @@
+
 import { ThemeProvider } from "./components/ThemeProvider";
 import { WeatherProvider } from "@/components/WeatherProvider";
+import { AuthProvider } from "@/components/AuthProvider";
 import { TopAppBar } from "@/components/TopAppBar";
 import { PageHeader } from "@/components/PageHeader";
 import { CurrentWeatherCard } from "@/components/CurrentWeatherCard";
 import { Map } from "@/components/Map";
-import {HourlyWeatherTabs} from "@/components/HourlyWeatherTabs";
+import { HourlyWeatherTabs } from "@/components/HourlyWeatherTabs";
+import { DynamicBackground } from "@/components/DynamicBackground";
 
 export const App = () => {
   return (
     <ThemeProvider>
-      <WeatherProvider>
-      <TopAppBar/>
-      <main className="py-4">
-        <div className="container">
-          <PageHeader />
+      <AuthProvider>
+        <WeatherProvider>
+          <DynamicBackground />
+          <TopAppBar/>
+          <main className="py-4">
+          <div className="container">
+            <PageHeader />
 
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <CurrentWeatherCard /> 
-          <Map/>
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <CurrentWeatherCard /> 
+            <Map/>
+            </div>
+            <HourlyWeatherTabs/>
           </div>
-          <HourlyWeatherTabs/>
-        </div>
-      </main>
-      </WeatherProvider>
+        </main>
+        </WeatherProvider>
+      </AuthProvider>
     </ThemeProvider>
   )
 };
