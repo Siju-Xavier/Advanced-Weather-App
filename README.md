@@ -1,34 +1,36 @@
-# Advanced Weather App
+# Advanced Weather App (Full-Stack Edition)
 
+A modern, responsive weather forecast application built with React, TypeScript, and Vite. 
 
-A modern, responsive weather forecast application built with React, TypeScript, and Vite. It provides detailed current and hourly weather information, an interactive map, and customizable user preferences.This App is not built from scratch by me , I have referred this from a youtube tutorial(@codewithsadee) and made it simpler in my own way to hone my React skills.
+### 🚀 The Upscale
+I originally started this project following a foundational tutorial by [@codewithsadee](https://www.youtube.com/@codewithsadee), but I have since **upscaled** it with significant full-stack enhancements to turn it into a high-performance SaaS-like application.
 
-## Features
+## 🛠️ My Enhancements (Beyond the Tutorial)
 
--   **Current Weather:** Displays real-time weather conditions, including temperature, "feels like" temperature, wind speed and direction, humidity, visibility, pressure, and dew point.
--   **Hourly Forecasts:** Interactive tabs provide detailed hourly data for:
-    -   Overview (Temperature & Feels Like)
-    -   Precipitation
-    -   Wind
-    -   Humidity
-    -   Cloud Cover
-    -   Pressure
-    -   UV Index
-    -   Visibility
--   **Location Search:** A searchable dialog to find weather forecasts for any city or country worldwide.
--   **Geolocation:** A "Get my location" button to instantly fetch weather data for the user's current position using the browser's Geolocation API.
--   **Interactive Map:** An integrated Mapbox map that centers on the selected location and displays a marker with the current temperature.
--   **Theme Toggling:** Switch between Light, Dark, and System-based themes.
--   **Unit Selection:** Choose between Metric (°C, m/s) and Imperial (°F, mph) units for weather data.
+-   **Supabase Full-Stack Integration:** I integrated a PostgreSQL database to allow users to save and persist their favorite locations in the cloud.
+-   **Secure Authentication:** Implemented a complete User Auth flow (Sign Up/Sign In) with personalized metadata (Display Names).
+-   **Row-Level Security (RLS):** Engineered secure database policies to ensure user data isolation.
+-   **Dynamic Weather Backdrops:** Developed a real-time atmospheric background system that changes based on live weather condition codes.
+-   **Glassmorphism Aesthetic:** Overhauled the UI with a modern "frosted glass" look using backdrop blurs and semi-transparent layers.
+-   **Motion Design:** Integrated `framer-motion` for smooth, declarative animations across tabs and background shifts.
+
+## Core Features
+
+-   **Current Weather:** Displays real-time data including temperature, "feels like," wind, humidity, and more.
+-   **Hourly Forecasts:** Interactive, animated tabs for detailed hourly metrics (UV, Pressure, Visibility, etc.).
+-   **Interactive Map:** Mapbox integration with dynamic markers and personalized camera centering.
+-   **Favorites Sidebar:** A dedicated, authenticated slide-out drawer to manage your saved locations.
+-   **Theme & Unit Control:** Full support for Dark/Light modes and Metric/Imperial conversions.
 
 ## Tech Stack
 
--   **Framework:** React, TypeScript, Vite
+-   **Framework:** React 19, TypeScript, Vite
+-   **Backend:** Supabase (PostgreSQL, Auth, RLS)
 -   **Styling:** Tailwind CSS, shadcn/ui
+-   **Animations:** Framer Motion
 -   **Data Fetching:** Axios
--   **State Management:** React Context API
--   **Charting:** Recharts
 -   **Mapping:** Mapbox GL JS
+-   **Charting:** Recharts
 -   **Icons:** Lucide React
 
 ## Getting Started
