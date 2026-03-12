@@ -11,6 +11,7 @@ import { CloudCoverChart } from "@/components/CloudCoverChart";
 import { PressureChart } from "@/components/PressureChart";
 import { UVChart } from "@/components/UVChart";
 import { VisibilityChart } from "@/components/VisibilityChart";
+import { FeelsLikeChart } from "@/components/FeelsLikeChart";
 /**
  * Types
  */
@@ -183,7 +184,20 @@ export const HourlyWeatherTabs = () => {
                         <VisibilityChart />
                     </CardContent>
                 </Card>
-            </TabsContent>                
+            </TabsContent> 
+
+            {/*Feels like Chart Tab*/}
+            <TabsContent value="feelsLike">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Feels like Chart</CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                        <FeelsLikeChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>                            
         </Tabs>
     )
 }
