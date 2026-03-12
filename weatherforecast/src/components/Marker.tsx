@@ -3,9 +3,9 @@ import mapboxgl from "mapbox-gl"
 
 import {APP, WEATHER_API } from "@/config"
 
-import { createElement, useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { ThermometerSunIcon } from "lucide-react";
-import { type Map, type LngLatLike, Marker as MarkerType} from "mapbox-gl"
+import { type Map, type LngLatLike, type Marker as MarkerType } from "mapbox-gl"
 import type { WeatherUnitType } from "@/components/WeatherProvider";
 import { useWeather } from "@/hooks/useWeather";
 

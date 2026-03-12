@@ -1,10 +1,10 @@
 import { getUserLocation } from "@/lib/utils"
-import { App } from "@/App"
+
 import { useWeather } from "@/hooks/useWeather"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { LocateFixedIcon } from "lucide-react"
-import { use } from "react"
+
 import { APP } from "@/config"
 
 

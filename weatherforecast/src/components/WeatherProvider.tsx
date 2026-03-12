@@ -1,4 +1,4 @@
-import { Children, createContext } from "react";
+import { createContext } from "react";
 
 import { APP, WEATHER_API } from "../config";
 import { openWeatherApi } from "../api";
