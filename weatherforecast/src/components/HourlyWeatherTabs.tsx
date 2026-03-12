@@ -8,7 +8,8 @@ import { PrecipitationChart } from "@/components/PrecipitationChart";
 import { WindChart } from "@/components/WindChart";
 import { HumidityChart } from "@/components/HumidityChart";
 import { CloudCoverChart } from "@/components/CloudCoverChart";
-import { PressureChart } from "@/components/PressureChart"
+import { PressureChart } from "@/components/PressureChart";
+import { UVChart } from "@/components/UVChart";
 /**
  * Types
  */
@@ -155,7 +156,20 @@ export const HourlyWeatherTabs = () => {
                         <PressureChart />
                     </CardContent>
                 </Card>
-            </TabsContent>                                                       
+            </TabsContent>
+
+            {/*UV Chart Tab*/}
+            <TabsContent value="uv">
+                <Card>
+                    <CardHeader>
+                        <CardTitle>UV Chart</CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                        <UVChart />
+                    </CardContent>
+                </Card>
+            </TabsContent>    
         </Tabs>
     )
 }
